@@ -45,7 +45,6 @@ while run:
 
     screen.fill(BG)
     
-
     rect2 = pygame.draw.rect(screen, RED if collide else BLUE, (rect_pos, rect_size))
 
     text = font.render(str(num), 1, BLACK)
