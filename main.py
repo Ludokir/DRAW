@@ -44,6 +44,7 @@ while run:
             rect1.center = e.pos
 
     screen.fill(BG)
+    
 
     rect2 = pygame.draw.rect(screen, RED if collide else BLUE, (rect_pos, rect_size))
 
