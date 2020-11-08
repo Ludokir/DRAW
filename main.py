@@ -33,8 +33,10 @@ screen = pygame.display.set_mode((WIDTH_WIN, HEIGHT_WIN))
 FPS = 60
 clock = pygame.time.Clock()
 
-surface = pygame.Surface((circle_radius * 2, circle_radius * 2), pygame.SRCALPHA)
-pygame.draw.circle(surface, YELLOW, (circle_radius, circle_radius), circle_radius)
+surface = pygame.Surface(
+    (circle_radius * 2, circle_radius * 2), pygame.SRCALPHA)
+pygame.draw.circle(
+    surface, YELLOW, (circle_radius, circle_radius), circle_radius)
 rect1 = surface.get_rect()
 
 font = pygame.font.SysFont('Arial', 20, True, False)
@@ -52,9 +54,11 @@ while run:
             rect1.center = e.pos
 
     screen.fill(BG)
-    
-    rect2 = pygame.draw.rect(screen, RED if collide else BLUE, (rect_pos, rect_size))
-    rect3 = pygame.draw.polygon(screen, RED if collide1 else GREEN, [[300, 300], [350, 300], [325, 250]])
+
+    rect2 = pygame.draw.rect(
+        screen, RED if collide else BLUE, (rect_pos, rect_size))
+    rect3 = pygame.draw.polygon(screen, RED if collide1 else GREEN, [
+        [300, 300], [350, 300], [325, 250]])
 
     text = font.render(str(num), 1, BLACK)
     text_render = text.get_rect(center=(300, 50))
@@ -70,7 +74,6 @@ while run:
     else:
         collide1 = False
         g = False
-
 
     if rect1.colliderect(rect2):
         collide = True
