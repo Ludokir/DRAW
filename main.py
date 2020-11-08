@@ -8,7 +8,7 @@ collide = False
 num = 0
 num1 = 0
 block = False
-cock = False
+collide1 = False
 g = False
 
 rect_size = w, h = 70, 70
@@ -54,7 +54,7 @@ while run:
     screen.fill(BG)
     
     rect2 = pygame.draw.rect(screen, RED if collide else BLUE, (rect_pos, rect_size))
-    rect3 = pygame.draw.polygon(screen, RED if cock else GREEN, [[300, 300], [350, 300], [325, 250]])
+    rect3 = pygame.draw.polygon(screen, RED if collide1 else GREEN, [[300, 300], [350, 300], [325, 250]])
 
     text = font.render(str(num), 1, BLACK)
     text_render = text.get_rect(center=(300, 50))
@@ -63,12 +63,12 @@ while run:
     text_render1 = text1.get_rect(center=(100, 50))
 
     if rect1.colliderect(rect3):
-        cock = True
+        collide1 = True
         if not g:
             num1 += 1
         g = True
     else:
-        cock = False
+        collide1 = False
         g = False
 
 
