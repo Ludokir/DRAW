@@ -4,7 +4,7 @@ import random
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
-WIDTH_WIN, HEIGHT_WIN = 800, 800
+WIDTH_WIN, HEIGHT_WIN = 600, 600
 collide = False
 collide2 = False
 num = 0
@@ -18,7 +18,7 @@ collide2 = False
 g = False
 m = False
 
-rect_size = w, h = 300, 300
+rect_size = w, h = (WIDTH_WIN * 0.375), (HEIGHT_WIN * 0.375)
 rect_pos = ((WIDTH_WIN - w) // 2, (HEIGHT_WIN - h) // 2)
 
 pol_size = w, h = 50, 50
@@ -54,11 +54,15 @@ font1 = pygame.font.SysFont('Arial', 20, True, False)
 font2 = pygame.font.SysFont('Arial', 20, True, False)
 
 
-def mo(x, y):
+def move():
+    global speed_x
+    global speed_y
+    global ball_rect
+    ball_rect = ball_rect.move(speed_x, speed_y)
     if ball_rect.left < 0 or ball_rect.right > WIDTH_WIN:
-        x = -x
+        speed_x = -speed_x
     if ball_rect.top < 0 or ball_rect.bottom > HEIGHT_WIN:
-        y = -y
+        speed_y = -speed_y
 
 
 run = True
@@ -74,10 +78,13 @@ while run:
 
     screen.fill(BG)
 
+    move()
+
     rect2 = pygame.draw.rect(
         screen, RED if collide or collide1 else BLUE, (rect_pos, rect_size))
     rect3 = pygame.draw.polygon(screen, RED if collide2 else GREEN, [
-        [600, 700], [700, 700], [650, 600]])
+        [(WIDTH_WIN - 150), (HEIGHT_WIN - 75)], [(WIDTH_WIN - 75), (
+            HEIGHT_WIN - 75)], [(WIDTH_WIN - 112.5), (HEIGHT_WIN - 150)]])
 
     text = font.render(str(num), 1, BLACK)
     text_render = text.get_rect(center=((WIDTH_WIN - 100), 50))
@@ -86,10 +93,7 @@ while run:
     text_render1 = text1.get_rect(center=(100, 50))
 
     text2 = font2.render(str(num2), 1, GREEN)
-    text_render2 = text2.get_rect(center=(400, 50))
-
-    ball_rect = ball_rect.move(speed_x, speed_y)
-    mo(speed_x, speed_y)
+    text_render2 = text2.get_rect(center=((WIDTH_WIN // 2), 50))
 
     if ball_rect.colliderect(rect2):
         collide1 = True
