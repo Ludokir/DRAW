@@ -86,7 +86,7 @@ while run:
         [(WIDTH_WIN - 150), (HEIGHT_WIN - 75)], [(WIDTH_WIN - 75), (
             HEIGHT_WIN - 75)], [(WIDTH_WIN - 112.5), (HEIGHT_WIN - 150)]])
 
-    text = font.render(str(num), 1, BLACK)
+    text = font.render(f'число {str(num)}', 1, BLACK)
     text_render = text.get_rect(center=((WIDTH_WIN - 100), 50))
 
     text1 = font1.render(str(num1), 1, BLUE)
