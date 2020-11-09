@@ -15,8 +15,8 @@ speed_y = random.randint(4, 10)
 block = False
 collide1 = False
 collide2 = False
-g = False
-m = False
+block1 = False
+block2 = False
 
 rect_size = w, h = (WIDTH_WIN * 0.375), (HEIGHT_WIN * 0.375)
 rect_pos = ((WIDTH_WIN - w) // 2, (HEIGHT_WIN - h) // 2)
@@ -97,12 +97,12 @@ while run:
 
     if ball_rect.colliderect(rect2):
         collide1 = True
-        if not g:
+        if not block1:
             num1 += 1
-        g = True
+        block1 = True
     else:
         collide1 = False
-        g = False
+        block1 = False
 
     if rect1.colliderect(rect2):
         collide = True
@@ -113,14 +113,14 @@ while run:
         collide = False
         block = False
 
-    if rect1.colliderect(rect3):
+    if rect1.colliderect(rect3) or ball_rect.colliderect(rect3):
         collide2 = True
-        if not m:
+        if not block2:
             num2 += 1
-        m = True
+        block2 = True
     else:
         collide2 = False
-        m = False
+        block2 = False
 
     screen.blit(text2, text_render2)
     screen.blit(surface, rect1)
