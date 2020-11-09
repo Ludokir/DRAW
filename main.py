@@ -78,6 +78,7 @@ while run:
 
     screen.fill(BG)
 
+
     move()
 
     rect2 = pygame.draw.rect(
