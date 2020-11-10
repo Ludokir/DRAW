@@ -10,8 +10,8 @@ collide2 = False
 num = 0
 num1 = 0
 num2 = 0
-speed_x = random.randint(4, 10)
-speed_y = random.randint(4, 10)
+speed_x = random.randint(2, 10)
+speed_y = random.randint(2, 10)
 block = False
 collide1 = False
 collide2 = False
@@ -77,6 +77,9 @@ while run:
             rect1.center = e.pos
 
     screen.fill(BG)
+
+    if speed_y == speed_x:
+        speed_y = random.randint(4, 5)
 
     move()
 
