@@ -85,13 +85,13 @@ while run:
         [(WIDTH_WIN - 150), (HEIGHT_WIN - 75)], [(WIDTH_WIN - 75), (
             HEIGHT_WIN - 75)], [(WIDTH_WIN - 112.5), (HEIGHT_WIN - 150)]])
 
-    text = font.render(f'число {str(num)}', 1, BLACK)
+    text = font.render(f'курсор {str(num)}', 1, BLACK)
     text_render = text.get_rect(center=((WIDTH_WIN - 100), 50))
 
-    text1 = font1.render(str(num1), 1, BLUE)
+    text1 = font1.render(f'мяч {str(num1)}', 1, BLUE)
     text_render1 = text1.get_rect(center=(100, 50))
 
-    text2 = font2.render(str(num2), 1, GREEN)
+    text2 = font2.render(f'мяч и курсор {str(num2)}', 1, GREEN)
     text_render2 = text2.get_rect(center=((WIDTH_WIN // 2), 50))
 
     if ball_rect.colliderect(rect2):
