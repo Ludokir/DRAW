@@ -79,7 +79,7 @@ while run:
     screen.fill(BG)
 
     if speed_y == speed_x:
-        speed_y = random.randint(4, 5)
+        speed_y = random.randint(2, 10)
 
     move()
 
