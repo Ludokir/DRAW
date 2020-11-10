@@ -6,6 +6,7 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 WIDTH_WIN, HEIGHT_WIN = 600, 600
 collide = False
+collide1 = False
 collide2 = False
 num = 0
 num1 = 0
@@ -13,19 +14,14 @@ num2 = 0
 speed_x = random.randint(2, 10)
 speed_y = random.randint(2, 10)
 block = False
-collide1 = False
-collide2 = False
 block1 = False
 block2 = False
 
 rect_size = w, h = (WIDTH_WIN * 0.375), (HEIGHT_WIN * 0.375)
 rect_pos = ((WIDTH_WIN - w) // 2, (HEIGHT_WIN - h) // 2)
 
-pol_size = w, h = 50, 50
-pol_pos = (300, 300)
-
 circle_radius = 35
-circle_pos = (0, 0)
+circle_pos = ()
 
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
