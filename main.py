@@ -50,15 +50,13 @@ font1 = pygame.font.SysFont('Arial', 20, True, False)
 font2 = pygame.font.SysFont('Arial', 20, True, False)
 
 
-def move():
-    global speed_x
-    global speed_y
-    global ball_rect
+def move(x, y):
+    global speed_x, speed_y, ball_rect
     ball_rect = ball_rect.move(speed_x, speed_y)
     if ball_rect.left < 0 or ball_rect.right > WIDTH_WIN:
-        speed_x = -speed_x
+        speed_x = -x
     if ball_rect.top < 0 or ball_rect.bottom > HEIGHT_WIN:
-        speed_y = -speed_y
+        speed_y = -y
 
 
 run = True
@@ -77,7 +75,7 @@ while run:
     if speed_y == speed_x:
         speed_y = random.randint(2, 10)
 
-    move()
+    move(speed_x, speed_y)
 
     rect2 = pygame.draw.rect(
         screen, RED if collide or collide1 else BLUE, (rect_pos, rect_size))
